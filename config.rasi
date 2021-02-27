@@ -1,5 +1,6 @@
 configuration {
 modi: "window,drun,combi";
 theme: "slate";
+icon-theme: "Flat-Remix-Blue";
 combi-modi: "window,drun,ssh";
 }
