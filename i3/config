@@ -33,7 +33,7 @@ exec --no-startup-id nm-applet
 # Autostart Apps
 exec --no-startup-id ~/.fehbg &
 exec --no-startup-id picom -CGb --config /home/qiraht/.config/picom/picom.conf
-exec --no-startup-id kdeconnect-indicator
+
 # Workspace Layout
 # Default Tiling
 #workspace_layout default
@@ -221,6 +221,8 @@ bar {
 # Floating Windows
 #
 for_window [window_role="About"] floating enable
+for_window [title="Picture-in-Picture"] sticky enable
+for_window [title="Picture in picture"] sticky enable
 
 # XFCE Setting Specific Apps
 for_window [title="Settings"] floating enable
@@ -268,3 +270,6 @@ for_window [class="Nemo"] floating enable
 for_window [class="Xviewer"] floating enable
 for_window [class="Xplayer"] floating enable
 for_window [class="Xreader"] floating enable
+for_window [class="Gnome"] floating enable
+for_window [class="Cheese"] floating enable
+for_window [class="GParted"] floating enable
