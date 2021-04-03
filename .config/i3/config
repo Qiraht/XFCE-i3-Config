@@ -36,7 +36,19 @@ gaps outer 0
 exec --no-startup-id nm-applet
 
 # Autostart Apps
+# auth polkit-gnome 
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# Pulseeffects service
+pulseeffects --no-startup-id --gapplication-service
+
+# kdeconnect indicator
+exec --no-startup-id kdeconnect-indicator
+
+# Background
 exec --no-startup-id nitrogen --restore &
+
+# Compositor
 exec --no-startup-id picom -CGb --config /home/qiraht/.config/picom/picom.conf
 
 # Workspace Layout
