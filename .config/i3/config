@@ -46,10 +46,13 @@ pulseeffects --no-startup-id --gapplication-service
 exec --no-startup-id kdeconnect-indicator
 
 # Background
-exec --no-startup-id nitrogen --restore &
+exec --no-startup-id nitrogen --restore
 
 # Compositor
 exec --no-startup-id picom -CGb --config /home/qiraht/.config/picom/picom.conf
+
+# Execute .desktop file with dex
+exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart/
 
 # Workspace Layout
 # Default Tiling
