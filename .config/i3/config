@@ -9,7 +9,8 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod Mod4
+set $alt Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -18,6 +19,10 @@ font pango:cantarell 11
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
+
+# set inner/outer gaps
+gaps inner 2
+gaps outer 0
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -31,15 +36,15 @@ font pango:cantarell 11
 exec --no-startup-id nm-applet
 
 # Autostart Apps
-exec --no-startup-id ~/.fehbg &
+exec --no-startup-id nitrogen --restore &
 exec --no-startup-id picom -CGb --config /home/qiraht/.config/picom/picom.conf
 
 # Workspace Layout
 # Default Tiling
-#workspace_layout default
+workspace_layout default
 
 # Stacking
-workspace_layout stacking
+#workspace_layout stacking
 
 # Tabbed
 #workspace_layout tabbed
@@ -57,6 +62,14 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+
+# Interactive Screenshot with maim, xclip, & xdotool
+bindsym Print maim ~/Pictures/Screenshot/Screenshots\ $(date +%Y-%m-%d)\ $(date +%H-%M-%S).png
+bindsym Shift+Print exec maim -s ~/Pictures/Screenshot/Screenshots\ $(date +%Y-%m-%d)\ $(date +%H-%M-%S).png
+bindsym $alt+Print exec maim -i $(xdotool getactivewindow) ~/Pictures/Screenshot/Screenshots\ $(date +%Y-%m-%d)\ $(date +%H-%M-%S).png
+bindsym Control+Print maim | xclip -selection clipboard -t image/png
+bindsym Control+Shift+Print exec maim -s | xclip -selection clipboard -t image/png
+bindsym Control+$alt+Print exec maim -i | xclip -selection clipboard -t image/png
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
