@@ -16,16 +16,15 @@ set $alt Mod1
 # is used in the bar {} block below.
 font pango:cantarell 11
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-
 # set inner/outer gaps
 gaps inner 8
 gaps outer 4
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
+
+
+# Screenlock
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -40,7 +39,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Pulseeffects service
-pulseeffects --no-startup-id --gapplication-service
+exec --no-startup-id pulseeffects --gapplication-service 
 
 # kdeconnect indicator
 exec --no-startup-id kdeconnect-indicator
